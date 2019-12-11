@@ -1,11 +1,7 @@
-/******************************************************************
-    Template Name: Local Direction
-    Description: Local Direction HTML Template
-    Author: Colorlib
-    Author URI: https://www.colorlib.com
-    Version: 1.0
-    Created: Colorlib
-******************************************************************/
+/*----------------------------------------*/
+/* フォント
+/*----------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap&subset=japanese');
 
 /*------------------------------------------------------------------
 [Table of contents]
@@ -35,7 +31,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Lato", sans-serif;
+	font-family: 'Noto Sans JP', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	background: none;
@@ -49,8 +45,7 @@ h5,
 h6 {
 	margin: 0;
 	color: #111111;
-	font-weight: 400;
-	font-family: "Lato", sans-serif;
+	font-family: 'Noto Sans JP', sans-serif;
 }
 
 h1 {
@@ -80,7 +75,7 @@ h6 {
 p {
 	font-size: 14px;
 	color: #222222;
-	font-family: "Lato", sans-serif;
+	font-family: 'Noto Sans JP', sans-serif;
 	font-weight: 400;
 	line-height: 30px;
 	margin: 0 0 15px 0;
@@ -190,7 +185,7 @@ ol {
 
 .spad {
 	padding-top: 100px;
-	padding-bottom: 100px;
+	/* padding-bottom: 100px; */
 }
 
 .text-white h1,
