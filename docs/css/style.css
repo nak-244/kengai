@@ -185,7 +185,11 @@ ol {
 
 .spad {
 	padding-top: 100px;
-	/* padding-bottom: 100px; */
+	padding-bottom: 100px;
+}
+
+.spad1 {
+	padding-top: 100px;
 }
 
 .text-white h1,
