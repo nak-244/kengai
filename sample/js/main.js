@@ -1,95 +1,158 @@
-/*  ---------------------------------------------------
-    Template Name: Local Direction
-    Description: Local Direction HTML Template
-    Author: Colorlib
-    Author URI: https://www.colorlib.com
-    Version: 1.0
-    Created: Colorlib
----------------------------------------------------------  */
+;(function () {
+	
+	'use strict';
 
-'use strict';
 
-(function ($) {
 
-    /*------------------
-        Preloader
-    --------------------*/
-    $(window).on('load', function () {
-        $(".loader").fadeOut();
-        $("#preloder").delay(200).fadeOut("slow");
-    });
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+			any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
 
-    /*------------------
-        Background Set
-    --------------------*/
-    $('.set-bg').each(function () {
-        var bg = $(this).data('setbg');
-        $(this).css('background-image', 'url(' + bg + ')');
-    });
+	var fullHeight = function() {
 
-    /*------------------
-		Navigation
-	--------------------*/
-    $(".mobile-menu").slicknav({
-        prependTo: '#mobile-menu-wrap',
-        allowParentLinks: true
-    });
+		if ( !isMobile.any() ) {
+			$('.js-fullheight').css('height', $(window).height());
+			$(window).resize(function(){
+				$('.js-fullheight').css('height', $(window).height());
+			});
+		}
 
-    $('.slicknav_nav ul ').prepend('<li class="header-right-warp"></li>');
-    $('.header-right').clone().prependTo('.slicknav_nav > ul > .header-right-warp');
+	};
 
-    /*----------------------
-        Testimonial Slider
-    -----------------------*/
-    $(".testimonial-item").owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        items: 1,
-        dots: false,
-        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-        smartSpeed: 1200,
-        autoplay: false,
-    });
+	// Animations
 
-    /*------------------
-        Magnific Popup
-    --------------------*/
-    $('.pop-up').magnificPopup({
-        type: 'image'
-    });
+	var contentWayPoint = function() {
+		var i = 0;
+		$('.animate-box').waypoint( function( direction ) {
 
-    /*-------------------
-		Category Select
-	--------------------- */
-    $('.ca-search').niceSelect();
+			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+				
+				i++;
 
-    /*-------------------
-		Local Select
-	--------------------- */
-    $('.lo-search').niceSelect();
+				$(this.element).addClass('item-animate');
+				setTimeout(function(){
 
-    /*-------------------
-		Arrange Select
-	--------------------- */
-    $('.arrange-select select').niceSelect();
+					$('body .animate-box.item-animate').each(function(k){
+						var el = $(this);
+						setTimeout( function () {
+							var effect = el.data('animate-effect');
+							if ( effect === 'fadeIn') {
+								el.addClass('fadeIn animated');
+							} else if ( effect === 'fadeInLeft') {
+								el.addClass('fadeInLeft animated');
+							} else if ( effect === 'fadeInRight') {
+								el.addClass('fadeInRight animated');
+							} else {
+								el.addClass('fadeInUp animated');
+							}
 
-    /*-------------------
-		Radio Btn
-	--------------------- */
-    $(".filter-left .category-filter .category-option .co-item label").on('click', function () {
-        $(".filter-left .category-filter .category-option .co-item label").removeClass('active');
-        $(this).addClass('active');
-    });
+							el.removeClass('item-animate');
+						},  k * 200, 'easeInOutExpo' );
+					});
+					
+				}, 100);
+				
+			}
 
-    $(".filter-left .rating-filter .rating-option .ro-item label").on('click', function () {
-        $(".filter-left .rating-filter .rating-option .ro-item label").removeClass('active');
-        $(this).addClass('active');
-    });
+		} , { offset: '85%' } );
+	};
 
-    $(".filter-left .distance-filter .distance-option .do-item label").on('click', function () {
-        $(".filter-left .distance-filter .distance-option .do-item label").removeClass('active');
-        $(this).addClass('active');
-    });
 
-})(jQuery);
+	var burgerMenu = function() {
+
+		$('.js-fh5co-nav-toggle').on('click', function(event){
+			event.preventDefault();
+			var $this = $(this);
+
+			if ($('body').hasClass('offcanvas')) {
+				$this.removeClass('active');
+				$('body').removeClass('offcanvas');	
+			} else {
+				$this.addClass('active');
+				$('body').addClass('offcanvas');	
+			}
+		});
+
+
+
+	};
+
+	// Click outside of offcanvass
+	var mobileMenuOutsideClick = function() {
+
+		$(document).click(function (e) {
+	    var container = $("#fh5co-aside, .js-fh5co-nav-toggle");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+
+	    	if ( $('body').hasClass('offcanvas') ) {
+
+    			$('body').removeClass('offcanvas');
+    			$('.js-fh5co-nav-toggle').removeClass('active');
+			
+	    	}
+	    	
+	    }
+		});
+
+		$(window).scroll(function(){
+			if ( $('body').hasClass('offcanvas') ) {
+
+    			$('body').removeClass('offcanvas');
+    			$('.js-fh5co-nav-toggle').removeClass('active');
+			
+	    	}
+		});
+
+	};
+
+	var sliderMain = function() {
+		
+	  	$('#fh5co-hero .flexslider').flexslider({
+			animation: "fade",
+			slideshowSpeed: 5000,
+			directionNav: true,
+			start: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			},
+			before: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			}
+
+	  	});
+
+	};
+
+	// Document on load.
+	$(function(){
+		fullHeight();
+		contentWayPoint();
+		burgerMenu();
+		mobileMenuOutsideClick();
+		sliderMain();
+	});
+
+
+}());
