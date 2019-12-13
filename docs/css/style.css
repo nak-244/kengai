@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -7,7 +9,7 @@
 }
 
 body {
-  font-family: 'Kosugi Maru', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.6;
@@ -274,6 +276,7 @@ figure figcaption {
 
 #fh5co-hero {
   font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  font-weight: 500;
   min-height: 500px;
   width: 100%;
   float: left;
