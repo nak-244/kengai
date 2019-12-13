@@ -12,6 +12,7 @@
   .pc {
     display: none !important;
   }
+
   .sp {
     display: block !important;
   }
@@ -23,29 +24,31 @@
   -ms-filter: "alpha(opacity=70)";
 }
 
-
 /* グローバルメニューを上で止める */
-.site-header{
+.site-header {
   display: flex;
   position: absolute;
   justify-content: center;
   width: 100%;
   z-index: 100;
 }
-.site-header.fixed{
-    position: fixed;
-    top: 0;
+
+.site-header.fixed {
+  position: fixed;
+  top: 0;
 }
 
 /* グローバルメニュー リンク色変更 */
 .site-header a:link {
-    color: #000000 ;
+  color: #000000;
 }
+
 .site-header a:visited {
-    color: #000000 ;
+  color: #000000;
 }
+
 .site-header a:hover {
-    color: #F00038 ;
+  color: #F00038;
 }
 
 /* divすべてをaタグでくくるよ */
@@ -80,11 +83,10 @@
   /*IE*/
 }
 
-
 /* ガターの溝をなくす */
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+.no-gutter>[class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 #map {
@@ -111,6 +113,7 @@
 }
 
 @media only screen and (max-width: 800px) {
+
   .col-head-type1 tr,
   .col-head-type1 th,
   .col-head-type1 td {
@@ -128,6 +131,25 @@
   }
 }
 
-.neon1{
-text-shadow: 0 0 0.2em rgba(255,255,255,1);
+.neon1 {
+  text-shadow: 0 0 0.2em rgba(255, 255, 255, 1);
+}
+
+.scroll {
+  position: absolute;
+  top: 90%;
+  left: 47%;
+  z-index: 99;
+}
+
+.float {
+  animation: float_4753 3s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes float_4753 {
+  0% { transform: translateY(0) }
+  33.33333% { transform: translateY(-6px) }
+  66.66667% { transform: translateY(0) }
+  100% { transform: translateY(0) }
 }
