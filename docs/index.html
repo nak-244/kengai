@@ -150,35 +150,36 @@
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<select class="form-control">
-												<option>▼勤務エリア</option>
-												<option>北海道</option>
-												<option>東北</option>
-												<option>関東</option>
-												<option>北陸・甲信越</option>
-												<option>東海</option>
-												<option>関西</option>
-												<option>中国・四国</option>
-												<option>九州</option>
-												<option>沖縄</option>
+											<select class="form-control" id="srh_area_param">
+												<option value="">▼勤務エリア</option>
+												<option value="1">北海道</option>
+												<option value="2">東北</option>
+												<option value="3">関東</option>
+												<option value="4">北陸・甲信越</option>
+												<option value="5">東海</option>
+												<option value="6">関西</option>
+												<option value="7">中国・四国</option>
+												<option value="8">九州</option>
+												<option value="9">沖縄</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<select class="form-control">
-												<option>▼条件を選ぶ</option>
-												<option>寮費無料</option>
-												<option>赴任旅費会社負担</option>
-												<option>住居費補助あり</option>
-												<option>食事手当あり</option>
-												<option>時給1,400円以上</option>
+											<select class="form-control" id="sfw">
+												<option value="">▼条件を選ぶ</option>
+												<option value="寮費無料">寮費無料</option>
+												<option value="赴任旅費会社負担">赴任旅費会社負担</option>
+												<option value="住居費補助あり">住居費補助あり</option>
+												<option value="食事手当あり">食事手当あり</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
-											<input type="submit" class="btn btn-primary btn-md" value="求人を検索">
+											<a href="https://sigotora.jp/index.cfm?fuseaction=job.srchform">
+											<input type="submit" class="btn btn-primary btn-md" value="求人を検索" id="test">
+										</a>
 										</div>
 									</div>
 
