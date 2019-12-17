@@ -153,3 +153,9 @@
   66.66667% { transform: translateY(0) }
   100% { transform: translateY(0) }
 }
+
+/* カラム落ちを防ぐ rowのクラスに設定 */
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
